@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employment Exchange Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .form-container { width: 500px; margin: 20px auto; border: 1px solid #ccc; padding: 20px; }
+        .form-title { text-align: right; font-weight: bold; font-size: 1.2em; margin-bottom: 20px; }
+        .form-group { margin-bottom: 10px; display: flex; }
+        .form-group label { width: 150px; display: inline-block; }
+        .form-group input[type="text"], .form-group select { width: 100%; }
+        .address-group { margin-bottom: 10px; }
+        .address-group label { display: block; margin-bottom: 5px; }
+        .address-group input { width: 100%; margin-bottom: 5px; }
+        .buttons { margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="form-title">Employment Exchange</div>
+    
+    <form id="employmentForm">
+        <div class="form-group">
+            <label for="firstName">First Name :</label>
+            <input type="text" id="firstName" name="firstName">
+        </div>
+        
+        <div class="form-group">
+            <label for="secondName">Second Name :</label>
+            <input type="text" id="secondName" name="secondName">
+        </div>
+        
+        <div class="form-group">
+            <label for="fathersName">Father's Name :</label>
+            <input type="text" id="fathersName" name="fathersName">
+        </div>
+        
+        <div class="form-group">
+            <label for="dob">Date of Birth :</label>
+            <input type="text" id="dob" name="dob" style="width: 80px;">
+        </div>
+        
+        <div class="form-group">
+            <label>Sex Code :</label>
+            <input type="checkbox" id="sexM" name="sex" value="M"> <label for="sexM" style="width:auto; margin-right:15px;">M</label>
+            <input type="checkbox" id="sexF" name="sex" value="F"> <label for="sexF" style="width:auto;">F</label>
+        </div>
+        
+        <div class="form-group">
+            <label for="qualification">Qualification :</label>
+            <select id="qualification" name="qualification">
+                <option value="High School">High School</option>
+                <option value="Graduate">Graduate</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="stream">Stream :</label>
+            <select id="stream" name="stream">
+                <option value="Science">Science</option>
+                <option value="Arts">Arts</option>
+                <option value="Commerce">Commerce</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="marks">Percentage Marks :</label>
+            <input type="text" id="marks" name="marks" style="width: 60px;">
+        </div>
+        
+        <div class="form-group">
+            <label for="nationality">Nationality :</label>
+            <input type="text" id="nationality" name="nationality" style="width: 120px;">
+        </div>
+        
+        <div class="form-group">
+            <label for="religion">Religion :</label>
+            <input type="text" id="religion" name="religion" style="width: 120px;">
+        </div>
+        
+        <div class="form-group">
+            <label for="category">Category :</label>
+            <select id="category" name="category" style="width: 80px;">
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="OBC">OBC</option>
+                <option value="General">General</option>
+            </select>
+        </div>
+        
+        <div class="address-group">
+            <label for="mailAddress1">Mailing Address :</label>
+            <input type="text" id="mailAddress1" name="mailAddress1">
+            <input type="text" id="mailAddress2" name="mailAddress2">
+        </div>
+        
+        <div class="address-group">
+            <label for="permAddress1">Permanent Address :</label>
+            <input type="text" id="permAddress1" name="permAddress1">
+            <input type="text" id="permAddress2" name="permAddress2">
+        </div>
+        
+        <div class="buttons">
+            <button type="button" onclick="validateForm()">OK</button>
+            <button type="reset">CLEAR</button>
+        </div>
+    </form>
+</div>
+
+<script>
+// Basic JavaScript validation function for the form above
+function validateForm() {
+    let firstName = document.getElementById('firstName').value;
+    let fathersName = document.getElementById('fathersName').value;
+    let marks = document.getElementById('marks').value;
+    
+    if (firstName.trim() === "") {
+        alert("First Name cannot be blank.");
+        return false;
+    }
+    if (fathersName.trim() === "") {
+        alert("Father's Name cannot be blank.");
+        return false;
+    }
+    if (isNaN(marks) || marks === "") {
+        alert("Please enter a valid number for Percentage Marks.");
+        return false;
+    }
+    
+    alert("Form submitted and validated successfully!");
+    return true;
+}
+</script>
+
+</body>
+</html>
